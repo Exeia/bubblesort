@@ -32,6 +32,11 @@ public class bubblesort{
 			if(num[i-1] > num[i])
 			{
 				verify = true;
+			}
+			else 
+			{
+				verify = false;
+				break;
 			} 
 		}
 		return verify; 
