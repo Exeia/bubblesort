@@ -1,0 +1,32 @@
+Before: 
+After: 
+Before: 
+After: 
+Before: 
+After: 
+Before: 
+After: 
+Before: 
+After: 
+Before: 
+After: 
+Before: 
+After: 
+Before: 
+After: 
+Before: 
+After: 
+Before: 
+After: 
+The results:
+25.358
+25.32
+21.356
+21.392
+21.352
+21.367
+21.376
+21.349
+21.31
+21.355
+The times unsorted: 0
