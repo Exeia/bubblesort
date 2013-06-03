@@ -2,7 +2,7 @@ import java.util.*;
 
 public class bubblesort{
 
-	public static int [] unsorted = new int[100000];
+	public static int [] unsorted = new int[200000];
 
 	public static void sort(int[] num)
 	{
@@ -46,6 +46,7 @@ public class bubblesort{
 		int n = 42;
 		int MAX = 10;
 		int count =0;
+		double [] best = new double[MAX];
 		double [] time = new double[MAX];
 		
 		//initialize array;
@@ -59,19 +60,26 @@ public class bubblesort{
 			sort(unsorted);
 			long t1 = System.currentTimeMillis();
 			time[x] = (t1-t0)/1000.0;
+			
 			if(isVerify(unsorted) == false)
 			{
 				count++;
 			}	
+			//best case
+			long t2 = System.currentTimeMillis();
+			sort(unsorted);
+			long t3 = System.currentTimeMillis();
+			best[x] = (t3-t2)/1000.0;
 			System.out.println("After: ");
 		//	print_array();
 			reset_array();
 		}
 
 		 System.out.println("The results:");
+		 System.out.println("Avg   Best");
 		for(int i = 0; i < MAX; i++)
 		{
-		 	System.out.println(time[i]);
+		 	System.out.println(time[i] +" " +best[i] );
 		}
 		System.out.println("The times unsorted: " + count);
 		

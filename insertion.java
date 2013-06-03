@@ -46,7 +46,7 @@ public class insertion{
 		int MAX = 10;
 		int count =0;
 		double [] time = new double[MAX];
-		
+		double [] best = new double[MAX];
 		//initialize array;
 		
 		for(int x = 0; x < MAX; x++)
@@ -62,15 +62,20 @@ public class insertion{
 			{
 				count++;
 			}	
+			long t2 = System.currentTimeMillis();
+			sort(unsorted);
+			long t3 = System.currentTimeMillis();
+			best[x] = (t3-t2)/1000.0;
 			System.out.println("After: ");
 		//	print_array();
 			reset_array();
 		}
 
 		 System.out.println("The results:");
+		 System.out.println("Average Best");
 		for(int i = 0; i < MAX; i++)
 		{
-		 	System.out.println(time[i]);
+		 	System.out.println(time[i] + " "+ best[i]);
 		}
 		System.out.println("The times unsorted: " + count);
 		
