@@ -110,7 +110,7 @@ public class bubblesort{
 			 t3 = System.currentTimeMillis();
 			best_20000[x] = (t3-t2);
 
-			reverse(unsorted3); 
+			reverse(unsorted2); 
 			t2 = System.currentTimeMillis();
 			sort(unsorted2);
 			 t3 = System.currentTimeMillis();
@@ -138,7 +138,7 @@ public class bubblesort{
 		 System.out.println("Average Best");
 		for(int i = 0; i < MAX; i++)
 		{
-		 	System.out.println(time[i] + " "+ best[i]);
+		 	System.out.println(time[i] + " "+ best[i]+ " " +worst[i]);
 		}
 		
 		 System.out.println("In millisecond");
