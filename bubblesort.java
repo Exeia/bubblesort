@@ -24,26 +24,14 @@ public class bubblesort{
 			} 
 		}
 	}
-	public static void reverse(int[] num)
+	public static void reverse(int [] num)
 	{
-		boolean swapped = true;
-		int temp;
-		while(swapped)
-		{
-			swapped = false;
-			for(int i = 1; i <= num.length-1; i++)
-			{
-				if(num[i-1] < num[i])
-				{
-					temp = num[i-1];
-					num[i-1] = num[i];
-					num[i] = temp;
-					swapped = true;
-				}
+		for (int i = 0; i < num.length / 2; i++) {
+  			int temp = num[i];
+  			num[i] = num[num.length - 1 - i];
+  			num[num.length - 1 - i] = temp;
 			} 
-		}
 	}
-
 	public static boolean isVerify(int [] num)
 	{
 		boolean verify = true;
@@ -103,8 +91,9 @@ public class bubblesort{
 			best[x] = (t3-t2)/1000.0;
 			bestA[x] = t3-t2;
 		
+			reverse(unsorted3); 
 			 t2 = System.currentTimeMillis();
-			reverse(unsorted);
+			sort(unsorted);
 			 t3 = System.currentTimeMillis();
 			worstA[x] = t3-t2;
 		//20,000 elements	
@@ -119,8 +108,9 @@ public class bubblesort{
 			 t3 = System.currentTimeMillis();
 			best_20000[x] = (t3-t2);
 
+			reverse(unsorted3); 
 			t2 = System.currentTimeMillis();
-			reverse(unsorted2);
+			sort(unsorted2);
 			 t3 = System.currentTimeMillis();
 			worst_20000[x] = (t3-t2);
 		//2,000,000
@@ -132,9 +122,10 @@ public class bubblesort{
 			sort(unsorted3);
 			 t3 = System.currentTimeMillis();
 			best_2000000[x] = (t3-t2);
-			 
+			
+			reverse(unsorted3); 
 			 t2 = System.currentTimeMillis();
-			reverse(unsorted3);
+			sort(unsorted3);
 			 t3 = System.currentTimeMillis();
 			worst_2000000[x] = (t3-t2);
 		//	print_array();
