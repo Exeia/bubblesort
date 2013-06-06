@@ -33,6 +33,33 @@ public class selection_sort{
 			
 		}
 	}
+	public static void reverse(int[] num)
+	{
+		int min =0;	
+		for(int i = 0; i < num.length-1; i++)	
+		{
+			min = i;
+			for(int j = i+1; j < num.length; j++)
+			{
+				if(num[min] < num[j])
+				{
+					min = j;
+				}
+			} 
+			
+			if (min != i)
+			{
+				
+					int temp = num[i];
+					num[i] = num[min];
+					num[min] = temp;
+			} 
+		
+				 
+		
+			
+		}
+	}
 
 	public static boolean isVerify(int [] num)
 	{
@@ -61,12 +88,15 @@ public class selection_sort{
 		
 		double [] timeA = new double[MAX];
 		double [] bestA = new double[MAX];
+		double [] worstA = new double[MAX];
 		
 		double [] time_20000 = new double[MAX];
 		double [] best_20000 = new double[MAX];
+		double [] worst_20000 = new double[MAX];
 		
 		double [] time_2000000 = new double[MAX];
 		double [] best_2000000 = new double[MAX];
+		double [] worst_2000000 = new double[MAX];
 		//initialize array;
 		
 		for(int x = 0; x < MAX; x++)
@@ -89,25 +119,42 @@ public class selection_sort{
 			long t3 = System.currentTimeMillis();
 			best[x] = (t3-t2)/1000.0;
 			bestA[x] = t3-t2;
+			t2 = System.currentTimeMillis();
+			reverse(unsorted);
+			t3 = System.currentTimeMillis();
+			worstA[x] = t3-t2;
 		//20,000 elements	
 			System.out.println("After: ");
 			 t2 = System.currentTimeMillis();
 			sort(unsorted2);
 			 t3 = System.currentTimeMillis();
 			time_20000[x] = (t3-t2);
+			
 			 t2 = System.currentTimeMillis();
 			sort(unsorted2);
 			 t3 = System.currentTimeMillis();
 			best_20000[x] = (t3-t2);
+			 
+			t2 = System.currentTimeMillis();
+			reverse(unsorted2);
+			 t3 = System.currentTimeMillis();
+			worst_20000[x] = (t3-t2);
+			
 		//2,000,000
 			 t2 = System.currentTimeMillis();
 			sort(unsorted3);
 			 t3 = System.currentTimeMillis();
 			time_2000000[x] = (t3-t2);
+			
 			 t2 = System.currentTimeMillis();
 			sort(unsorted3);
 			 t3 = System.currentTimeMillis();
 			best_2000000[x] = (t3-t2);
+			 
+			t2 = System.currentTimeMillis();
+			reverse(unsorted3);
+			 t3 = System.currentTimeMillis();
+			worst_2000000[x] = (t3-t2);
 		//	print_array();
 			reset_array();
 		}
@@ -122,17 +169,17 @@ public class selection_sort{
 		 System.out.println("In millisecond");
 		for(int i = 0; i < MAX; i++)
 		{
-		 	System.out.println(timeA[i] + " "+ bestA[i]);
+		 	System.out.println(timeA[i] + " "+ bestA[i]+ " " + worstA[i]);
 		}
 		 System.out.println("The results 20000:");
 		for(int i = 0; i < MAX; i++)
 		{
-		 	System.out.println(time_20000[i] + " "+ best_20000[i]);
+		 	System.out.println(time_20000[i] + " "+ best_20000[i] + " "+ worst_20000[i]);
 		}
 		System.out.println("The results 2000:");
 		for(int i = 0; i < MAX; i++)
 		{
-		 	System.out.println(time_2000000[i] + " "+ best_2000000[i]);
+		 	System.out.println(time_2000000[i] + " "+ best_2000000[i] + " "+ worst_2000000[i]);
 		}
 		System.out.println("The times unsorted: " + count);
 		
