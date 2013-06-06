@@ -56,7 +56,8 @@ public class bubblesort{
 		int count =0;
 		double [] time = new double[MAX];
 		double [] best = new double[MAX];
-		
+		double [] worst = new double[MAX];
+	
 		double [] timeA = new double[MAX];
 		double [] bestA = new double[MAX];
 		double [] worstA = new double[MAX];
@@ -91,11 +92,12 @@ public class bubblesort{
 			best[x] = (t3-t2)/1000.0;
 			bestA[x] = t3-t2;
 		
-			reverse(unsorted3); 
+			reverse(unsorted); 
 			 t2 = System.currentTimeMillis();
 			sort(unsorted);
 			 t3 = System.currentTimeMillis();
 			worstA[x] = t3-t2;
+			worst[x] = (t3-t2)/1000.0;
 		//20,000 elements	
 			System.out.println("After: ");
 			 t2 = System.currentTimeMillis();
